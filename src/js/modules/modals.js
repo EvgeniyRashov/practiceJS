@@ -53,11 +53,13 @@ const modals = () => {
                 if (getComputedStyle(item).display !== 'none') {
                     display = "block";
                 }
-            });
+        });
 
             if (!display) {
                 document.querySelector(selector).style.display = 'block';
                 document.body.style.overflow = "hidden";
+                let scroll = calcScroll();
+                document.body.style.marginRight = `${scroll}px`;
             }
         }, time);
     }
@@ -80,7 +82,7 @@ const modals = () => {
     bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
     bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
 
-    showModalByTime('.popup-consultation', 5000);
+    // showModalByTime('.popup-consultation', 5000);
 };
 
 export default modals;
